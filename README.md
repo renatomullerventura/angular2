@@ -1,2 +1,6 @@
-# angular2
-Estudo de angular 2
+# Angular 2
+Aulas de Angular 2
+
+ferramentas necessárias
+- Node.js
+- Typescript
