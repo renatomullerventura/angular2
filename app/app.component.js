@@ -9,17 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var TASKS = [
+    { id: 1, name: 'Tarefa 1' },
+    { id: 2, name: 'Tarefa 2' },
+    { id: 3, name: 'Tarefa 3' },
+    { id: 4, name: 'Tarefa 4' }
+];
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = {
-            name: "Hello guys!",
-            "description": "descrição qualquer"
-        };
+        this.title = "Hello guys!";
+        this.tasks = TASKS;
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>{{ title.name }} - {{ title.description }}</h1>\n    <input type=\"text\" [ngModel]=\"title.name\" />\n    <input type=\"text\" [(ngModel)]=\"title.description\" />"
+            template: "<h1>{{ title }}</h1>\n    <ul><li *ngFor=\"let t of tasks\">{{ t.name }}</li></ul>"
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
