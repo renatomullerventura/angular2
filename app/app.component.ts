@@ -1,15 +1,28 @@
 import {Component, Input} from '@angular/core';
 
 var TASKS:Task[] = [
-    {id: 1, name: 'Tarefa 1'},
-    {id: 2, name: 'Tarefa 2'},
-    {id: 3, name: 'Tarefa 3'},
-    {id: 4, name: 'Tarefa 4'}
+    {id: 1, name: 'Trabalhar'},
+    {id: 2, name: 'Estudar'},
+    {id: 3, name: 'Caminhar'},
+    {id: 4, name: 'Dormir'}
 ];
 
 export class Task{
     id: number;
     name: string;
+}
+
+@Component({
+    selector: 'task-edit',
+    template: `
+    <div *ngIf="task">
+        <input type="text" [(ngModel)]="task.name" />
+    </div>
+    `
+})
+export class TaskEdit {
+    @Input()
+    task: Task;
 }
 
 @Component({
@@ -19,10 +32,9 @@ export class Task{
     <ul>
         <li *ngFor="let t of tasks" (click)="onClick(t)">{{ t.id }} - {{ t.name }}</li>
     </ul>
-    <div *ngIf="selectedTask">
-        <input type="text" [(ngModel)]="selectedTask.name" />
-    </div>
-    `
+    <task-edit [task]="selectedTask"></task-edit>
+    `,
+    directives: [TaskEdit]
 })
 export class AppComponent {
     

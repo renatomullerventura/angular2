@@ -10,10 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var TASKS = [
-    { id: 1, name: 'Tarefa 1' },
-    { id: 2, name: 'Tarefa 2' },
-    { id: 3, name: 'Tarefa 3' },
-    { id: 4, name: 'Tarefa 4' }
+    { id: 1, name: 'Trabalhar' },
+    { id: 2, name: 'Estudar' },
+    { id: 3, name: 'Caminhar' },
+    { id: 4, name: 'Dormir' }
 ];
 var Task = (function () {
     function Task() {
@@ -21,6 +21,23 @@ var Task = (function () {
     return Task;
 }());
 exports.Task = Task;
+var TaskEdit = (function () {
+    function TaskEdit() {
+    }
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Task)
+    ], TaskEdit.prototype, "task", void 0);
+    TaskEdit = __decorate([
+        core_1.Component({
+            selector: 'task-edit',
+            template: "\n    <div *ngIf=\"task\">\n        <input type=\"text\" [(ngModel)]=\"task.name\" />\n    </div>\n    "
+        }), 
+        __metadata('design:paramtypes', [])
+    ], TaskEdit);
+    return TaskEdit;
+}());
+exports.TaskEdit = TaskEdit;
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "Hello guys!";
@@ -33,7 +50,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n    <h1>{{ title }}</h1>\n    <ul>\n        <li *ngFor=\"let t of tasks\" (click)=\"onClick(t)\">{{ t.id }} - {{ t.name }}</li>\n    </ul>\n    <div *ngIf=\"selectedTask\">\n        <input type=\"text\" [(ngModel)]=\"selectedTask.name\" />\n    </div>\n    "
+            template: "\n    <h1>{{ title }}</h1>\n    <ul>\n        <li *ngFor=\"let t of tasks\" (click)=\"onClick(t)\">{{ t.id }} - {{ t.name }}</li>\n    </ul>\n    <task-edit [task]=\"selectedTask\"></task-edit>\n    ",
+            directives: [TaskEdit]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
