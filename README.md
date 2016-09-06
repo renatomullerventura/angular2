@@ -14,7 +14,7 @@ como uma entrada de dados que irá alterar os valores de uma variável
 ao retirar os parêntesis, o elemento só recebe o valor da variável sem poder alterar ela
 
 [ngModel] -> recebe valor de variável
-[(ngModel)] -> e altera valor de variável
+[(ngModel)] -> e altera valor de variável (2 way data bind)
 
 # Repeaters
 *ngFor="let t of tasks"

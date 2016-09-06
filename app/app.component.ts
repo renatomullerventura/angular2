@@ -9,11 +9,20 @@ var TASKS = [
 
 @Component({
     selector: 'my-app',
-    template: `<h1>{{ title }}</h1>
-    <ul><li *ngFor="let t of tasks">{{ t.name }}</li></ul>`
+    template: `
+    <h1>{{ title }}</h1>
+    <ul>
+        <li *ngFor="let t of tasks" (click)="onClick(t)">{{ t.id }} - {{ t.name }}</li>
+    </ul>
+    `
 })
 export class AppComponent {
     title = "Hello guys!";
     
     tasks = TASKS;
+    
+    onClick(task){
+        alert(task.name);
+    }
+    
 }

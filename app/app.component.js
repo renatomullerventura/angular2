@@ -20,10 +20,13 @@ var AppComponent = (function () {
         this.title = "Hello guys!";
         this.tasks = TASKS;
     }
+    AppComponent.prototype.onClick = function (task) {
+        alert(task.name);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>{{ title }}</h1>\n    <ul><li *ngFor=\"let t of tasks\">{{ t.name }}</li></ul>"
+            template: "\n    <h1>{{ title }}</h1>\n    <ul>\n        <li *ngFor=\"let t of tasks\" (click)=\"onClick(t)\">{{ t.id }} - {{ t.name }}</li>\n    </ul>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
