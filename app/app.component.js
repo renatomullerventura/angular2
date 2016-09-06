@@ -15,18 +15,25 @@ var TASKS = [
     { id: 3, name: 'Tarefa 3' },
     { id: 4, name: 'Tarefa 4' }
 ];
+var Task = (function () {
+    function Task() {
+    }
+    return Task;
+}());
+exports.Task = Task;
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "Hello guys!";
         this.tasks = TASKS;
     }
     AppComponent.prototype.onClick = function (task) {
-        alert(task.name);
+        this.title = 'Colocando tarefa "' + task.name + '" na lista de coisas a fazer!';
+        this.selectedTask = task;
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n    <h1>{{ title }}</h1>\n    <ul>\n        <li *ngFor=\"let t of tasks\" (click)=\"onClick(t)\">{{ t.id }} - {{ t.name }}</li>\n    </ul>\n    "
+            template: "\n    <h1>{{ title }}</h1>\n    <ul>\n        <li *ngFor=\"let t of tasks\" (click)=\"onClick(t)\">{{ t.id }} - {{ t.name }}</li>\n    </ul>\n    <div *ngIf=\"selectedTask\">\n        <input type=\"text\" [(ngModel)]=\"selectedTask.name\" />\n    </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
