@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TaskEditComponent} from './task-edit.component';
 import {Task} from './task';
 import {TaskService} from './task-service';
+
 
 @Component({
     selector: 'my-app',
@@ -15,12 +16,17 @@ import {TaskService} from './task-service';
     directives: [TaskEditComponent],
     providers: [TaskService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
     
     title = "Lista de tarefas!";
     selectedTask:Task;
-    constructor(private taskService: TaskService){
-        this.tasks = this.taskService.getTasks();
+    constructor(private taskService: TaskService){ }
+    
+    ngOnInit():any{
+        this.getTasks();
+    }
+    getTasks():Task[]{
+        return this.tasks = this.taskService.getTasks();
     }
     onClick(task){
         this.selectedTask = task;

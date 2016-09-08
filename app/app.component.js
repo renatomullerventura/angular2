@@ -15,8 +15,13 @@ var AppComponent = (function () {
     function AppComponent(taskService) {
         this.taskService = taskService;
         this.title = "Lista de tarefas!";
-        this.tasks = this.taskService.getTasks();
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.getTasks();
+    };
+    AppComponent.prototype.getTasks = function () {
+        return this.tasks = this.taskService.getTasks();
+    };
     AppComponent.prototype.onClick = function (task) {
         this.selectedTask = task;
     };

@@ -33,3 +33,10 @@ transforma em class="h1" se variável for verdadeira
 - () event binding | template = para eventos de componentes
 - [()] two way databind
 - {{}}
+
+#Ciclos de inicialização
+
+//ngOnInit é executado ao início da aplicação
+ngOnInit():any{
+    this.getTasks();
+}
