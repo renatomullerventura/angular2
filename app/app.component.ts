@@ -1,15 +1,7 @@
 import {Component} from '@angular/core';
 import {TaskEditComponent} from './task-edit.component';
 import {Task} from './task';
-
-var TASKS:Task[] = [
-    {id: 1, name: 'Trabalhar'},
-    {id: 2, name: 'Estudar'},
-    {id: 3, name: 'Caminhar'},
-    {id: 4, name: 'Dormir'}
-];
-
-
+import {TASKS} from './task-data';
 
 @Component({
     selector: 'my-app',

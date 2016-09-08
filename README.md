@@ -16,7 +16,7 @@ ao retirar os parêntesis, o elemento só recebe o valor da variável sem poder 
 [ngModel] -> recebe valor de variável
 [(ngModel)] -> e altera valor de variável (2 way data bind)
 
-# Repeaters
+#Repeaters
 *ngFor="let t of tasks"
 
 'let' é um elemento do ecmascript 6
