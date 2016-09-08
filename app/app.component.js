@@ -10,16 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var task_edit_component_1 = require('./task-edit.component');
-var TASKS = [
-    { id: 1, name: 'Trabalhar' },
-    { id: 2, name: 'Estudar' },
-    { id: 3, name: 'Caminhar' },
-    { id: 4, name: 'Dormir' }
-];
+var task_data_1 = require('./task-data');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "Lista de tarefas!";
-        this.tasks = TASKS;
+        this.tasks = task_data_1.TASKS;
     }
     AppComponent.prototype.onClick = function (task) {
         this.selectedTask = task;

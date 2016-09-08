@@ -1,0 +1,8 @@
+"use strict";
+exports.TASKS = [
+    { id: 1, name: 'Trabalhar' },
+    { id: 2, name: 'Estudar' },
+    { id: 3, name: 'Caminhar' },
+    { id: 4, name: 'Dormir' }
+];
+//# sourceMappingURL=task-data.js.map
