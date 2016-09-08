@@ -44,13 +44,12 @@ var AppComponent = (function () {
         this.tasks = TASKS;
     }
     AppComponent.prototype.onClick = function (task) {
-        this.title = 'Colocando tarefa "' + task.name + '" na lista de coisas a fazer!';
         this.selectedTask = task;
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n    <h1>{{ title }}</h1>\n    <ul>\n        <li *ngFor=\"let t of tasks\" (click)=\"onClick(t)\">{{ t.id }} - {{ t.name }}</li>\n    </ul>\n    <task-edit [task]=\"selectedTask\"></task-edit>\n    ",
+            template: "\n    <h1 [id]=\"title\">{{ title }}</h1>\n    <ul>\n        <li *ngFor=\"let t of tasks\" (click)=\"onClick(t);title='Hora de '+t.name\">{{ t.id }} - {{ t.name }}</li>\n    </ul>\n    <task-edit [task]=\"selectedTask\"></task-edit>\n    ",
             directives: [TaskEdit]
         }), 
         __metadata('design:paramtypes', [])

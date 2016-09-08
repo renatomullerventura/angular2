@@ -28,9 +28,9 @@ export class TaskEdit {
 @Component({
     selector: 'my-app',
     template: `
-    <h1>{{ title }}</h1>
+    <h1 [id]="title">{{ title }}</h1>
     <ul>
-        <li *ngFor="let t of tasks" (click)="onClick(t)">{{ t.id }} - {{ t.name }}</li>
+        <li *ngFor="let t of tasks" (click)="onClick(t);title='Hora de '+t.name">{{ t.id }} - {{ t.name }}</li>
     </ul>
     <task-edit [task]="selectedTask"></task-edit>
     `,
@@ -43,7 +43,6 @@ export class AppComponent {
     selectedTask:Task;
     
     onClick(task){
-        this.title = 'Colocando tarefa "'+task.name+'" na lista de coisas a fazer!';
         this.selectedTask = task;
     }
     
