@@ -12,16 +12,15 @@ import {TaskService} from './task-service';
     </ul>
     <task-edit [task]="selectedTask"></task-edit>
     `,
-    directives: [TaskEditComponent]
+    directives: [TaskEditComponent],
+    providers: [TaskService]
 })
 export class AppComponent {
     
     title = "Lista de tarefas!";
-    tasks:Task[] = TASKS;
     selectedTask:Task;
-    constructor(){
-        var service = new TaskService(); // <-- não é uma boa prática
-        this.tasks = service.getTasks();
+    constructor(private taskService: TaskService){
+        this.tasks = this.taskService.getTasks();
     }
     onClick(task){
         this.selectedTask = task;
