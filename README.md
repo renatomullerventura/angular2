@@ -20,3 +20,16 @@ ao retirar os parêntesis, o elemento só recebe o valor da variável sem poder 
 *ngFor="let t of tasks"
 
 'let' é um elemento do ecmascript 6
+
+
+#Propertybind
+[class.h1]="variavel"
+transforma em class="h1" se variável for verdadeira
+
+
+#Para o entendimento mais claro
+- *
+- [] property binding | componentes = leitura e acessar dados
+- () event binding | template = para eventos de componentes
+- [()] two way databind
+- {{}}

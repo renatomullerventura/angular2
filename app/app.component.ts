@@ -1,4 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
+import {TaskEditComponent} from './task-edit.component';
+import {Task} from './task';
 
 var TASKS:Task[] = [
     {id: 1, name: 'Trabalhar'},
@@ -7,23 +9,7 @@ var TASKS:Task[] = [
     {id: 4, name: 'Dormir'}
 ];
 
-export class Task{
-    id: number;
-    name: string;
-}
 
-@Component({
-    selector: 'task-edit',
-    template: `
-    <div *ngIf="task">
-        <input type="text" [(ngModel)]="task.name" />
-    </div>
-    `
-})
-export class TaskEdit {
-    @Input()
-    task: Task;
-}
 
 @Component({
     selector: 'my-app',
@@ -34,11 +20,11 @@ export class TaskEdit {
     </ul>
     <task-edit [task]="selectedTask"></task-edit>
     `,
-    directives: [TaskEdit]
+    directives: [TaskEditComponent]
 })
 export class AppComponent {
     
-    title = "Hello guys!";
+    title = "Lista de tarefas!";
     tasks:Task[] = TASKS;
     selectedTask:Task;
     
